@@ -33,9 +33,16 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(/* func */) {
-  throw new Error('Not implemented');
+// function hiHello() {
+//   console.log('hello world');
+// }
+function getFunctionBody(func) {
+  if (typeof func === 'function') {
+    return func.toString();
+  }
+  return '';
 }
+// getFunctionBody(hiHello);
 
 /**
  * Returns the array where each element is the count of function arguments.
@@ -51,9 +58,23 @@ function getFunctionBody(/* func */) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  const arr = [];
+  for (let i = 0; i < funcs.length; i += 1) {
+    arr.push(i);
+  }
+  return arr;
 }
+
+// getArgumentsCount([
+//   function () {
+//     console.log('hello world');
+//   },
+//   function myFunc(x) {
+//     return x;
+//   },
+//   (a, b) => a * b,
+// ]);
 
 /**
  * Returns the math power function with the specified exponent
