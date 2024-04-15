@@ -93,7 +93,7 @@ function getArgumentsCount(funcs) {
  *
  */
 function getPowerFunction(exponent) {
-  return function (number) {
+  return function handlePowerFunction(number) {
     return number ** exponent;
   };
 }
@@ -116,7 +116,7 @@ function getPolynom(...coefficients) {
     return null;
   }
 
-  return function (x) {
+  return function handlePolynom(x) {
     return coefficients.reduce((acc, curr, index) => {
       return acc + curr * x ** (coefficients.length - 1 - index);
     }, 0);
@@ -139,12 +139,12 @@ function getPolynom(...coefficients) {
  */
 function memoize(func) {
   let cached = null;
-  let hasBeenCalled = false;
+  let isCalled = false;
 
-  return function () {
-    if (!hasBeenCalled) {
+  return function handleMemoize() {
+    if (!isCalled) {
       cached = func();
-      hasBeenCalled = true;
+      isCalled = true;
     }
     return cached;
   };
