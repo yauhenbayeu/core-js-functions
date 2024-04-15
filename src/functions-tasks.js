@@ -18,8 +18,9 @@
  *
  */
 function getCurrentFunctionName() {
-  throw new Error('Not implemented');
+  return getCurrentFunctionName.name;
 }
+// getCurrentFunctionName();
 
 /**
  * Returns the body of the function passed as argument.
